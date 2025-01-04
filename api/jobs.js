@@ -7,7 +7,7 @@ const token = process.env.API_KEY;
 const endpoint = "https://models.inference.ai.azure.com";
 const modelName = "Meta-Llama-3.1-405B-Instruct";
 
-module.exports = async (req, res) => {
+const app = async (req, res) => {
     if (req.method !== "GET") {
         return res.status(405).json({ error: "Method not allowed. Use GET." });
     }
@@ -91,3 +91,4 @@ module.exports = async (req, res) => {
         return res.status(500).json({ error: "Failed to fetch jobs. Please try again later." });
     }
 };
+export default app;
